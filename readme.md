@@ -25,9 +25,9 @@ struct stack
 	%asst%  = assert;
 	
     //
-	// There are various combinations for this option, for example:
-	// %apis%   = %Class% _ %Method% _ %class% _ %method% _
-	// %apis%   = any_prefix_ %method% _any_suffix
+    // There are various combinations for this option, for example:
+    // %apis%   = %Class% _ %Method% _ %class% _ %method% _
+    // %apis%   = any_prefix_ %method% _any_suffix
     //
     // %class% and %Class% and %method% and %Method% are place holder,
     // %class% means class-name begin with lower-case.
@@ -35,13 +35,13 @@ struct stack
     // %method% means method-name begin with lower-case.
     // %Method% means method-name begin with upper-case.
     //
-	%apis%   = %class% _ %method%; //public api style.
-
-	// Public APIs.
-	bool	%push%	(data_t data);
-	data_t	%pop%	();
-	size_t	%size%	();
-	void	%clear%	();
+    %apis%  = %class% _ %method%; //public api style.
+    
+    // Public APIs.
+    bool	%push%	(data_t data);
+    data_t	%pop%	();
+    size_t	%size%	();
+    void	%clear%	();
 };
 ~~~
 2, run command:
