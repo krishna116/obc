@@ -16,26 +16,28 @@ Feature：
 ~~~
 struct stack
 {
-	// Options for code generating, all options are optional.
-	%self%  = self;			//this pointer name.
-	%ctor% 	= create;		//default constructor name.	
-	%dtor% 	= destroy;		//default destructor name.
-	%ator% 	= malloc;
-	%etor% 	= free;
-	%asst%  = assert;
+    //
+    // Options for code generating, all options are optional.
+    //
+    %self%  = self;			//this pointer name.
+    %ctor% 	= create;		//default constructor name.	
+    %dtor% 	= destroy;		//default destructor name.
+    %ator% 	= malloc;
+    %etor% 	= free;
+    %asst%  = assert;
 	
     //
     // There are various combinations for this option, for example:
     // %apis%   = %Class% _ %Method% _ %class% _ %method% _
     // %apis%   = any_prefix_ %method% _any_suffix
     //
-    // %class% and %Class% and %method% and %Method% are place holder,
+    // %class% and %Class% and %method% and %Method% are place holders,
     // %class% means class-name begin with lower-case.
     // %Class% means class-name begin with upper-case.
     // %method% means method-name begin with lower-case.
     // %Method% means method-name begin with upper-case.
     //
-    %apis%  = %class% _ %method%; //public api style.
+    %apis%  = %class% _ %method%;    //public api style.
     
     // Public APIs.
     bool	%push%	(data_t data);
