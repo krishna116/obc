@@ -1,0 +1,7 @@
+struct stack
+{
+	bool	%push%	(data_t data);
+	data_t	%pop%	();
+	size_t	%size%	();
+	void	%clear%	();
+};

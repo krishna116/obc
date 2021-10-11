@@ -1,0 +1,10 @@
+struct Cat
+{
+	%self%  = This;
+	%apis%   = %Class% %Method%;
+
+	// Public APIs.
+	XXX_PREFIX bool	%Push%	(ANY_OBJ *(obj1), ANY_OBJ **obj2(), ANY_OBJ obj3[]);
+
+	ANY_RESULT TYPE1 TYPE2 %Sleep% (ZZZ ZZZ zzz, AAA aaa, ANY_TYPE sss, ...); 
+};

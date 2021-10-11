@@ -1,0 +1,21 @@
+struct stack
+{
+	// Options for code generating.
+	%self%  = self;			//This name.
+	%ctor% 	= create;		//Default constructor name	
+	%dtor% 	= destroy;		//Default destructor name
+	%ator% 	= malloc;
+	%etor% 	= free;
+	%asst%  = assert;
+	
+	// Public api style, there are various combinations, for example:
+	// %apis%   = %Class% _ %Method% _ %class% _ %method% _
+	// %apis%   = any_prefix_ %method% _any_suffix
+	%apis%   = %class% _ %method%;
+
+	// Public APIs.
+	bool	%push%	(data_t data);
+	data_t	%pop%	();
+	size_t	%size%	();
+	void	%clear%	();
+};
