@@ -133,8 +133,10 @@ This project has used antlr technology and it has antlr-runtime dependency. it c
 ```
 pacman -S mingw-w64-x86_64-antlr4-runtime-cpp
 ```
-2, update variable **ANTLR4_INCLUDE_PATH** of the project's CMakeLists.txt file, then build:
+2, Build:
 ```
+#You may need set antlr-runtime variable:
+#cmake -S . -B build -G "MinGW Makefiles" -D ANTLR4_INCLUDE_DIR=<where> -D ANTLR4_LIBRARY_DIR=<where> -D ANTLR4_LIBRARY_NAME=<name>
 cmake -S . -B build -G "MinGW Makefiles"
 cmake --build build
 ```
