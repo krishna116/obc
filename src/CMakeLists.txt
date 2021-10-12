@@ -12,22 +12,35 @@ add_executable(${PROJECT_NAME}
   main.cpp
 )
 
-target_include_directories(${PROJECT_NAME}
-    PRIVATE
-    ${ANTLR4_INCLUDE_PATH}
-)
+list(APPEND ANTLR4_INCLUDE_DIR E:/msys64/mingw64/include/antlr4-runtime)
+foreach(dir ${ANTLR4_INCLUDE_DIR})
+    target_include_directories(${PROJECT_NAME}
+        PRIVATE
+        ${dir}
+    )
+endforeach()
+
+foreach(dir ${ANTLR4_LIBRARY_DIR})
+    target_link_directories(${PROJECT_NAME}
+        PRIVATE
+        ${dir}
+        )
+endforeach()
+
+list(APPEND ANTLR4_LIBRARY_NAME libantlr4-runtime)
+foreach(lib ${ANTLR4_LIBRARY_NAME})
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        ${lib}
+        )
+endforeach()
 
 target_compile_features(${PROJECT_NAME}
     PRIVATE
     cxx_std_20
 )
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE
-    libantlr4-runtime
-)
-
-if(MINGW)
+if(MINGW OR CMAKE_GNU_COMPILER_ID)
     target_compile_options(${PROJECT_NAME}
         PRIVATE
         -Wno-attributes
@@ -35,7 +48,7 @@ if(MINGW)
 endif()
 
 add_custom_command(TARGET ${PROJECT_NAME}
-	POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E echo "$<TARGET_FILE:${PROJECT_NAME}>"
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E echo "$<TARGET_FILE:${PROJECT_NAME}>"
 )
 
